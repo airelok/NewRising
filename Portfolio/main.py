@@ -15,3 +15,10 @@ with col2:
                "Keep your eyes out for more projects. This isnt all we are capable of. "
                "Watch out world! We upgraded from Hello world!!!!!")
     st.write(content)
+
+
+content2 = """
+Below you can find some of the apps I have built in Python. 
+Feel free to contact me!"""
+
+st.write(content2)
