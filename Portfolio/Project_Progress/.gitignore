@@ -1,0 +1,9 @@
+(Projectsvenv) (base) airelking@Jenelyns-Air TOdo_App % git log --oneline
+55a3a7b (HEAD -> Portfolio) Detailed list of projects and sourced images for all projects that will be hosted on my webpage
+26b1a4c Defining the project and files that are not relevant
+8626b5f (Todo_App) Implement 'Add new todo items' feature
+08ed0cd (github/Todo_App) Create a static web interface
+ffef964 Created a standalone executable called My Todo App
+5c18377 Images were included to the add and complete button
+84faf1c Implemented the Complete and Exit button
+e9fbb6c Implemented the Edit button

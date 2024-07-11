@@ -6,7 +6,7 @@ st.set_page_config(layout = "wide")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("/Users/airelking/Desktop/NewRising/Projects/Portfolio/me.jpeg")
+    st.image("/Users/airelking/Desktop/NewRising/Projects/Portfolio/Project_Progress/me.jpeg")
 
 with col2:
     st.title("Airel King")
@@ -24,13 +24,13 @@ st.write(content2)
 
 col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
 
-df = pandas.read_csv("/Users/airelking/Desktop/NewRising/Projects/Portfolio/portfolio_list_data.csv", sep = ";")
+df = pandas.read_csv("/Users/airelking/Desktop/NewRising/Projects/Portfolio/Project_Progress/portfolio_list_data.csv", sep =";")
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
         st.write(row["description"])
-        st.image("py_portfolio_images/" + row["image"])
+        st.image("Project_Progress/py_portfolio_images/" + row["image"])
         st.write(f"[Source Code]({row['url']})")
 
 with col4:
@@ -39,4 +39,6 @@ with col4:
         st.write(row["description"])
         st.image("py_portfolio_images/" + row["image"])
         st.write(f"[Source Code]({row['url']})")
+
+
 
