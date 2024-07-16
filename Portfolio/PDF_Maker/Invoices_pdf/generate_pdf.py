@@ -21,12 +21,18 @@ for filepath in filepaths:
     pdf.add_page()
 
     #   set the header
-    pdf.set_font(family = "Times", size = 16, style = "B")
-    pdf.cell(w=50,  h=8, txt = f"Invoice nr. {invoice_nr}")
+    pdf.set_font(family = "Times", size = 24, style = "B")
+    pdf.cell(w = 50,  h = 8, txt = f"Invoice nr. {invoice_nr}", ln = 1)
+
+    #   set the subheader
+    invoice_date = filename.split("-")[1]
+    pdf.set_font(family = "Times", size = 18, style = "B")
+    pdf.cell(w = 50, h = 8, txt = f"Invoice Date: {invoice_date}", ln = 2)
+
 
     #   generate the pdf file and name it as follows
     pdf_output = pdf.output(f"Invoices/PDFs/{filename}.pdf")
-    print(pdf_output)
+
 
 
 
