@@ -30,11 +30,11 @@ for filepath in filepaths:
     pdf.cell(w = 50, h = 8, txt = f"Invoice Date: {invoice_date}", ln = 2)
 
     #   add the invoice data in a table format
-    pdf.set_font(family="Times", size=12, style="B")
-    pdf.cell(w=0, h=8, txt="Invoice Transaction Data", ln=2)
+    pdf.set_font(family = "Times", size = 12, style = "B")
+    pdf.cell(w = 0, h = 8, txt = "Invoice Transaction Data", ln = 2)
 
     #   Create a dataframe for each excel file
-    df = pd.read_excel(filepath, sheet_name="Sheet 1")
+    df = pd.read_excel(filepath, sheet_name = "Sheet 1")
     print(f"The data frame ---> \n {df}")
 
     #   Extract and format column names as table headers
@@ -63,8 +63,29 @@ for filepath in filepaths:
 
         pdf.ln()
 
+    total_sum = df["total_price"].sum()
+    pdf.set_font(family="Times", size=9, style="I")
+    pdf.set_text_color(80, 80, 80)
+    pdf.cell(w = 30, h = 8, txt = "", border = 1)
+    pdf.cell(w = 50, h = 8, txt = "", border = 1)
+    pdf.cell(w = 40, h = 8, txt = "", border = 1)
+    pdf.cell(w = 30, h = 8, txt = "", border = 1)
+    pdf.cell(w = 30, h = 8, txt = str(total_sum), border = 1, ln = 1)
+    print(f"We calculated the Total Sum for Invoice Statement nr # {filename.split("-")[0]}: \n {total_sum} \n")
+
+    #   Add the total sum sentence
+    pdf.set_font(family = "Times", size = 10, style = "B")
+    pdf.cell(w = 30, h = 8, txt = f"The total price is {total_sum}", ln = 1)
+
+    #   Add the company name and logo
+    pdf.set_font(family = "Times", size = 14, style = "B")
+    pdf.cell(w = 25, h = 8, txt = f"PythonHow")
+    pdf.image("/Users/airelking/Desktop/NewRising/Projects/Portfolio/PDF_Maker/Invoices_pdf/pythonhow.png", w = 10)
+
     #   generate the pdf file and name it as follows
     pdf_output = pdf.output(f"Invoices/PDFs/{filename}.pdf")
+
+print(f"We added the Total Sum, Company name and Logo to each invoice statement")
 
 
 
